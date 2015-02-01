@@ -1,0 +1,20 @@
+<ion-view title="Home" id="home">
+  <ion-content>
+    <img height="100" id="logo" src="img/logo.png"/>
+
+    <!-- Menu Grid -->
+    <div class="row" ng-repeat="sectionGroup in sections">
+    	<div class="col menu-item" ng-repeat="section in sectionGroup">
+    		<a href="#/checklist/{{section.id}}">
+    			<table class="menu-item-wrapper">
+		    		<tr class="progress"><td><div ng-style="{'width': getCompletion(section) + '%'}"></div></td></tr>
+		    		<tr ng-if="getCompletion(section) !== 100" class="icon-wrapper"><td><i class="flaticon-{{section.icon}}"></i></td></tr>
+		    		<tr ng-if="getCompletion(section) >= 100" class="icon-wrapper"><td><i class="completed flaticon-circle108"></i></td></tr>
+		    		<tr class="name"><td>{{section.title}}</td></tr>
+		    		<tr class="footer"><td></td></tr>
+		    	</table>
+		    </a>
+		  </div>
+    </div>
+  </ion-content>
+</ion-view>

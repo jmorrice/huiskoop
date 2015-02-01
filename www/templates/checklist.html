@@ -1,0 +1,23 @@
+<ion-view title="{{section.title}}" class="checklist">
+  <ion-content>
+
+    <!-- Checklist -->
+    <ul class="list">
+      <li class="item item-checkbox" ng-repeat="item in section.items">
+          <div class="checkbox">
+            <input ng-model="item.completed" type="checkbox" ng-change="saveToggle(item)">
+          </div>
+          <a ng-if="item.details" href="#/details/{{section.id}}/{{item.id}}">
+            <div>
+                {{item.name}}
+                <i class="icon ion-ios7-arrow-forward"></i>
+                <i ng-if="item.details" class="flaticon-viewing"></i>
+            </div>
+          </a>
+          <div ng-if="!item.details">
+            {{item.name}}
+          </div>
+      </li>
+    </ul>
+  </ion-content>
+</ion-view>

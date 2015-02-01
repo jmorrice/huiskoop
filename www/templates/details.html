@@ -1,0 +1,53 @@
+<ion-view title="{{item.name}}" class="details">
+  <ion-content padding="true">
+    <!-- Intro  -->
+    <div ng-if="item.id == 0">
+      <p>Er komt heel veel kijken bij het kopen van een nieuw huis. Huiskoopassistent helpt je bij dit proces door een totaaloverzicht te geven van alles waar je aan moet denken. Het is een afvinklijst, met tips en doorverwijzingen naar handige sites, en ruimte om zelf aantekeningen te maken.</p>
+      <p>Neem alle pagina’s van te voren door, zodat je een goed beeld hebt van de stappen en de tijdslijnen. Met de HuiskoopAssistent wordt ook de aanschaf van je nieuwe huis een feestje.</p>
+    </div>
+
+    <!-- Kopen? -->
+    <div ng-if="item.id == 1">
+      <p>Weet je zeker dat kopen voor jou een betere keuze is dan huren? Dat bepaal je aan de hand van je persoonlijke situatieschets (volgende pagina) in combinatie met je voorkeuren.</p>
+      <p>Kopen heeft de volgende voor- en nadelen ten opzichte van huren:</p>
+      <p><u>Voordelen:</u></p>
+      <p><u>Nadelen:</u></p>
+      <p>Zie voor meer informatie:<br><a href="http://www.gftrgt.nl">www.gftrgt.nl</a></p>
+    </div>
+
+    <!-- Situatieschets -->
+    <div ng-if="item.id == 2">
+      <p>Zorg dat je koopt voor de toekomst. Dit is belangrijk omdat.... Maak daarom een situatieschets. Houd o.a. rekening met:</p>
+      <p>*Koop ik alleen of samen<br>
+      *Wat zijn mijn huwelijkse voorwaarden<br>
+      *Waar werk ik over een paar jaar<br>
+      *Hoe ziet mijn gezinssituatie eruit</p>
+
+      <p>Ga voor extra informatie naar:<br>
+      *www.nibud.nl<br>
+      *www.situatieschets.nl</p>
+    </div>
+
+    <!-- Benodigheden -->
+    <div ng-if="item.id == 5">
+      <p>Als je straks een hypotheek wil aanvragen, heb je de volgende documenten nodig:</p>
+      <ul>
+        <li>Kope paspoort</li>
+        <li>Pensioenoverzicht</li>
+        <li>Salarisstrookje</li>
+        <li>Werkgeversverklaring</li>
+        <li>?</li>
+      </ul>
+    </div>
+
+    <!-- Hypotheekregelingen -->
+    <div ng-if="item.id == 6">
+      <p>Hypotheekregelingen zijn regelingen van de overheid om het huisbezit onder starters te promoten. Je krijgt dus korting. Er zijn twee regelingen</p>
+      <p>1. Je komt hiervoor in aanmerking als ..<br>
+      Zie www.nationale hypotheekgarantie.nl</p>
+      <p>2. Je komt hiervoor in aanmerking als...<br>
+      Zie startersregelingen.nl</p>
+    </div>
+
+  </ion-content>
+</ion-view>

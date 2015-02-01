@@ -1,96 +1,181 @@
 angular.module('starter.services', [])
 
-.factory('Chats', function() {
+.factory('Sections', ['$localStorage', function($localStorage) {
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
-  var chats = [{
+  var sections = [{
     id: 0,
-    name: 'Ben Sparrow',
-    lastText: 'You on your way?',
-    face: 'https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png'
+    title: 'Keuzes',
+    icon: 'human96',
+    items: [{
+      id: 0,
+      name: 'Intro',
+      details: true
+    }, {
+      id: 1,
+      name: 'Kopen',
+      details: true
+    }, {
+      id: 2,
+      name: 'Situatieschets',
+      details: true
+    }]
   }, {
     id: 1,
-    name: 'Max Lynx',
-    lastText: 'Hey, it\'s me',
-    face: 'https://avatars3.githubusercontent.com/u/11214?v=3&s=460'
+    title: 'Budget',
+    icon: 'budget',
+    items: [{
+      id: 4,
+      name: '1e Berekening'
+    }, {
+      id: 5,
+      name: 'Benodigheden',
+      details: true
+    }, {
+      id: 6,
+      name: 'Hypotheekregelingen',
+      details: true
+    }, {
+      id: 7,
+      name: 'Hypotheekadviseurs'
+    }, {
+      id: 8,
+      name: 'Hypotheekverstrekkers'
+    }]
   }, {
     id: 2,
-    name: 'Andrew Jostlin',
-    lastText: 'Did you get the ice cream?',
-    face: 'https://pbs.twimg.com/profile_images/491274378181488640/Tti0fFVJ.jpeg'
+    title: 'Oriëntatie',
+    icon: 'compass66',
+    items: [{
+      id: 9,
+      name: 'Huizensites'
+    }, {
+      id: 10,
+      name: 'Makelaars'
+    }, {
+      id: 11,
+      name: 'Kijken'
+    }]
   }, {
     id: 3,
-    name: 'Adam Bradleyson',
-    lastText: 'I should buy a boat',
-    face: 'https://pbs.twimg.com/profile_images/479090794058379264/84TKj_qa.jpeg'
+    title: 'Check',
+    icon: 'verified9',
+    items: [{
+      id: 12,
+      name: 'Kadaster'
+    }, {
+      id: 13,
+      name: 'Taxateur'
+    }, {
+      id: 14,
+      name: 'Bouwcontrole'
+    }]
   }, {
     id: 4,
-    name: 'Perry Governor',
-    lastText: 'Look at my mukluks!',
-    face: 'https://pbs.twimg.com/profile_images/491995398135767040/ie2Z_V6e.jpeg'
+    title: 'Bieden',
+    icon: 'legal10',
+    items: [{
+      id: 15,
+      name: 'Prijs Bepalen'
+    }, {
+      id: 16,
+      name: 'Voorwaarden Stellen'
+    }, {
+      id: 17,
+      name: 'Bieden'
+    }]
+  }, {
+    id: 5,
+    title: 'Kopen',
+    icon: 'buy10',
+    items: [{
+      id: 18,
+      name: 'Kopen'
+    }, {
+      id: 19,
+      name: 'Notaris'
+    }, {
+      id: 20,
+      name: 'Hypotheek Afsluiten'
+    }]
+  }, {
+    id: 6,
+    title: 'Klussen',
+    icon: 'tools6',
+    items: [{
+      id: 21,
+      name: 'Schilderen'
+    }, {
+      id: 22,
+      name: 'Keuken / Badkamer'
+    }, {
+      id: 23,
+      name: 'Interieur'
+    }, {
+      id: 24,
+      name: 'Tuin'
+    }]
+  }, {
+    id: 7,
+    title: 'Formeel',
+    icon: 'writing22',
+    items: [{
+      id: 25,
+      name: 'Gemeente'
+    }, {
+      id: 26,
+      name: 'Belastingen'
+    }, {
+      id: 27,
+      name: 'Verzekeringen'
+    }, {
+      id: 28,
+      name: 'Overeenkomsten'
+    }]
+  }, {
+    id: 8,
+    title: 'Verhuizen',
+    icon: 'delivery22',
+    items: [{
+      id: 29,
+      name: 'Post'
+    }, {
+      id: 1,
+      name: 'Gas/Water/Licht'
+    }, {
+      id: 2,
+      name: 'Verhuizing'
+    }, {
+      id: 3,
+      name: 'Abonnementen'
+    }]
   }];
 
   return {
-    all: function() {
-      return chats;
-    },
-    remove: function(chat) {
-      chats.splice(chats.indexOf(chat), 1);
-    },
-    get: function(chatId) {
-      for (var i = 0; i < chats.length; i++) {
-        if (chats[i].id === parseInt(chatId)) {
-          return chats[i];
-        }
-      }
-      return null;
+    get: function(index) {
+      angular.forEach(sections[index].items, function (item, key) {
+        var completed = $localStorage.getObject(item.id).completed;
+        item.completed = (typeof completed !== 'undefined') ? completed : false;
+      });
+      return sections[index];
     }
   }
-})
+}])
 
-/**
- * A simple example service that returns some data.
- */
-.factory('Friends', function() {
-  // Might use a resource here that returns a JSON array
-
-  // Some fake testing data
-  var friends = [{
-    id: 0,
-    name: 'Ben Sparrow',
-    notes: 'Enjoys drawing things',
-    face: 'https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png'
-  }, {
-    id: 1,
-    name: 'Max Lynx',
-    notes: 'Odd obsession with everything',
-    face: 'https://avatars3.githubusercontent.com/u/11214?v=3&s=460'
-  }, {
-    id: 2,
-    name: 'Andrew Jostlen',
-    notes: 'Wears a sweet leather Jacket. I\'m a bit jealous',
-    face: 'https://pbs.twimg.com/profile_images/491274378181488640/Tti0fFVJ.jpeg'
-  }, {
-    id: 3,
-    name: 'Adam Bradleyson',
-    notes: 'I think he needs to buy a boat',
-    face: 'https://pbs.twimg.com/profile_images/479090794058379264/84TKj_qa.jpeg'
-  }, {
-    id: 4,
-    name: 'Perry Governor',
-    notes: 'Just the nicest guy',
-    face: 'https://pbs.twimg.com/profile_images/491995398135767040/ie2Z_V6e.jpeg'
-  }];
-
-
+.factory('$localStorage', ['$window', function($window) {
   return {
-    all: function() {
-      return friends;
+    set: function(key, value) {
+      $window.localStorage[key] = value;
     },
-    get: function(friendId) {
-      // Simple index lookup
-      return friends[friendId];
+    get: function(key, defaultValue) {
+      return $window.localStorage[key] || defaultValue;
+    },
+    setObject: function(key, value) {
+      $window.localStorage[key] = JSON.stringify(value);
+    },
+    getObject: function(key) {
+      return JSON.parse($window.localStorage[key] || '{}');
     }
   }
-});
+}]);

@@ -1,1 +1,108 @@
-/* Empty. Add your own CSS if you like */
+/* FONTS */
+@font-face {
+  font-family: 'OpenSans';
+  src: url('../fonts/open-sans/OpenSans-Regular.ttf')  format('truetype');
+}
+
+/* GENERAL */
+ion-content {
+	background-color: #f6f6f6;
+}
+
+ion-nav-bar,
+ion-content,
+.bar-footer {
+	font-family: 'OpenSans', Fallback, sans-serif;
+}
+
+.bar-footer {
+	background-color: #f6f6f6;
+	text-align: center;
+	padding: 10px;
+}
+
+.bar-footer div {
+	text-align: center;
+	width: 100%;
+}
+
+/* HOME */
+#home #logo {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+#home .row {
+	height: 120px;
+}
+
+#home .menu-item {
+	height: 100%;
+	padding: 7px;
+}
+
+#home .menu-item-wrapper {
+	height: 100%;
+	width: 100%;
+	text-align: center;
+	font-weight: bold;
+	color: #fff;
+	background-color: #016bb2;
+}
+
+#home i:before {
+	font-size: 35px;
+	margin-left: 0px;
+}
+
+#home .icon-wrapper td {
+	vertical-align: middle;
+	padding-top: 10px;
+}
+
+#home .progress {
+	height: 5px;
+	width: 100%;
+}
+
+#home .progress div {
+	background-color: #ef6220;
+	height: 5px;
+}
+
+#home .name {
+	height: 25px;
+}
+
+#home .completed {
+	color: #1dd971;
+}
+
+#home .footer {
+	background-color: #40a4f7;
+	height: 3px;
+}
+
+/* CHECKLIST */
+.checklist i {
+	float: right;
+}
+
+.checklist .ion-ios7-arrow-forward {
+  margin-left: 15px;
+}
+
+.checklist .checkbox {
+	right: initial;
+}
+
+.checklist a {
+	color: #000;
+	text-decoration: none;
+}
+
+/* DETAILS */
+.details p {
+	font-weight: bold;
+}
